@@ -13,11 +13,8 @@ namespace OriginATM.Dominio
 
         public int TarjetaId { get; set; }
         public Tarjeta Tarjeta { get; set; }
-
         public DateTime Fecha { get; set; }
-
         public TipoOperacion Tipo { get; set; }
-
         public decimal? Monto { get; set; } 
     }
 }

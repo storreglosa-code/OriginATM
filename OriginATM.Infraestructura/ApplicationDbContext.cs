@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace OriginATM.Infraestructura
 {
-    public class ApplicacionDbContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
-        public ApplicacionDbContext(DbContextOptions<ApplicacionDbContext> options) : base(options) { }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -18,7 +18,15 @@ namespace OriginATM.Infraestructura
 
             modelBuilder.Entity<Operacion>()
                 .Property(o => o.Tipo)
-                .HasConversion<int>();
+                .HasConversion<string>();
+
+            modelBuilder.Entity<Tarjeta>()
+                .Property(t => t.Balance)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Operacion>()
+                .Property(o => o.Monto)
+                .HasPrecision(18, 2);
         }
 
         public DbSet<Tarjeta> Tarjetas { get; set; }

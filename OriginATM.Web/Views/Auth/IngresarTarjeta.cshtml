@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Bienvenido a Origin ATM";
+}
+<h1>@ViewData["Title"]</h1>
+
+    <h2>Ingrese su número de tarjeta</h2>
+
+    <div class="card-input-container">
+        <input class="mb-2" type="text" id="numeroFormateado" readonly placeholder="XXXX-XXXX-XXXX-XXXX" />
+    <label class="text-danger">  El número debe contener 16 dígitos</label>
+    </div>
+
+    <div id="tecladoNumerico">
+        @await Html.PartialAsync("_TecladoNumerico", "numeroFormateado")
+    </div>
+
+
+<form method="post" asp-action="VerificarTarjeta">
+
+    <input type="hidden" id="numeroTarjeta" name="numeroTarjeta" />
+    <button class="btn btn-success" type="submit">Aceptar</button>
+
+</form>

@@ -1,0 +1,10 @@
+﻿
+<h2>Ingrese el monto a retirar:</h2>
+
+
+<form method="post" asp-action="confirmarRetiro">
+    <input class="mb-2" type="number" id="inputMontoRetiro" name="montoRetiro" placeholder="100" readonly />
+    @await Html.PartialAsync("_TecladoNumerico", "inputMontoRetiro")
+    <button class="btn btn-success" type="submit">Aceptar</button>
+</form>
+<button type="button" class="btn btn-danger mb-2" onclick="salir()">Salir</button>

@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OriginATM.Infraestructura\OriginATM.Infraestructura.csproj" />
+    <ProjectReference Include="..\OriginATM.Repository\OriginATM.Repository.csproj" />
   </ItemGroup>
 
 </Project>

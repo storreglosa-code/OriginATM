@@ -13,6 +13,7 @@ namespace OriginATM.Dominio
         public string Pin { get; set; } 
         public decimal Balance { get; set; }
         public bool EstaBloqueada { get; set; }
+        public DateTime FechaVencimiento { get; set; }
         public ushort IntentosFallidos { get; set; }
 
         public List<Operacion> Operaciones { get; set; }

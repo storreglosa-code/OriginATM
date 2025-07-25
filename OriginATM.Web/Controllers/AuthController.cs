@@ -35,7 +35,6 @@ namespace OriginATM.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> VerificarTarjeta(string numeroTarjeta)
         {
-            //var tarjeta = await _tarjetaServicio.ObtenerSiExisteYNoEstaBloqueadaAsync(numeroTarjeta);
             var tarjeta = await _tarjetaRepository.ObtenerPorNumeroAsync(numeroTarjeta);
 
             if (tarjeta == null)
@@ -51,8 +50,8 @@ namespace OriginATM.Web.Controllers
             HttpContext.Session.SetString("NumeroTarjeta", tarjeta.Numero);
 
             return RedirectToAction("IngresarPIN");
-
         }
+
         [HttpGet]
         public IActionResult IngresarPin()
         {
@@ -67,34 +66,6 @@ namespace OriginATM.Web.Controllers
             return View();
         }
 
-        //if (!ValidarPIN(tarjeta, inputPin!))
-        //{
-        //    tarjeta.IntentosFallidos++;
-
-        //    if (tarjeta.IntentosFallidos >= CANTMAXINTENTOS)
-        //        tarjeta.EstaBloqueada = true;
-
-        //    await _tarjetaRepository.ActualizarAsync(tarjeta);
-        //}
-        //else
-        //{
-        //    // Éxito: reiniciar intentos
-        //    tarjeta.IntentosFallidos = 0;
-        //    await _tarjetaRepository.ActualizarAsync(tarjeta);
-        //}
-
-
-
-
-
-        //private bool ValidarPIN(Tarjeta tarjeta, string pin)
-        //{
-        //    if (tarjeta.Pin == pin) return true;
-        //    return false;
-        //}
-
-
-
         [HttpPost]
         public async Task<IActionResult> VerificarPIN(string inputPIN)
         {
@@ -104,7 +75,7 @@ namespace OriginATM.Web.Controllers
             if (string.IsNullOrEmpty(numeroTarjeta))
             {
                 TempData["Error"] = "Sesión expirada. Vuelva a ingresar la tarjeta.";
-                return RedirectToAction("IngresarTarjeta");
+                return RedirectToAction("Error");
             }
 
             var tarjeta = await _tarjetaRepository.ObtenerPorNumeroAsync(numeroTarjeta);
@@ -112,7 +83,7 @@ namespace OriginATM.Web.Controllers
             if (tarjeta == null)
             {
                 TempData["Error"] = "Tarjeta no encontrada.";
-                return RedirectToAction("IngresarTarjeta");
+                return RedirectToAction("Error");
             }
 
             if (tarjeta.EstaBloqueada)

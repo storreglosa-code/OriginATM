@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using OriginATM.Infraestructura;
-using OriginATM.Web.Servicios;
 using OriginATM.Repository.Implementacion;
 using OriginATM.Repository.Interfaces;
 
@@ -8,7 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<ITarjetaServicio, TarjetaServicio>();
 builder.Services.AddScoped<ITarjetaRepository, TarjetaRepository>();
 builder.Services.AddScoped<IOperacionRepository, OperacionRepository>();
 builder.Services.AddSession(options =>

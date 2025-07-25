@@ -4,19 +4,16 @@ using OriginATM.Infraestructura;
 using OriginATM.Repository.Implementacion;
 using OriginATM.Repository.Interfaces;
 using OriginATM.Web.Models;
-using OriginATM.Web.Servicios;
 using System.Net.NetworkInformation;
 
 namespace OriginATM.Web.Controllers
 {
     public class AuthController : Controller
     {
-        private readonly ITarjetaServicio _tarjetaServicio;
         private readonly ITarjetaRepository _tarjetaRepository;
 
-        public AuthController(ITarjetaServicio tarjetaServicio, ITarjetaRepository tarjetaRepository)
+        public AuthController(ITarjetaRepository tarjetaRepository)
         {
-            _tarjetaServicio = tarjetaServicio;
             _tarjetaRepository = tarjetaRepository;
         }
 

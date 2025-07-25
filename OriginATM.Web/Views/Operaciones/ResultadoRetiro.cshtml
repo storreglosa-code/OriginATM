@@ -1,7 +1,7 @@
 ﻿@model OriginATM.Web.Models.OperacionesViewModel;
 <div>
 
-    <h3 class="alert-info">CONSULTA BALANCE:</h3> <br />
+    <h3 class="alert-success">RETIRO REALIZADO CON EXITO</h3> <br />
     <div>
         <ul>
             <li>
@@ -22,8 +22,11 @@
             <li>
                 Saldo:<strong> $ @Model.Balance</strong>
             </li>
+            <li>
+                Monto Retirado:<strong> $ @Model.MontoRetirado</strong>
+            </li>
         </ul> <br />
-    </div> 
+    </div>
 
 </div>
 

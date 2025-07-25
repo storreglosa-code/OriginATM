@@ -3,7 +3,7 @@
 
 
 <form method="post" asp-action="confirmarRetiro">
-    <input class="mb-2" type="number" id="inputMontoRetiro" name="montoRetiro" placeholder="100" readonly />
+    <input class="mb-2" type="number" id="inputMontoRetiro" name="montoARetirar" placeholder="100" readonly />
     @await Html.PartialAsync("_TecladoNumerico", "inputMontoRetiro")
     <button class="btn btn-success" type="submit">Aceptar</button>
 </form>

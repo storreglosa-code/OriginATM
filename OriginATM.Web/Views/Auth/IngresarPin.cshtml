@@ -1,19 +1,16 @@
 ﻿@{
     const int CANTMAXINTENTOSFALLIDOS = 3;
-    ViewData["Title"] = "Bienvenido a Origin ATM";
+    ViewData["Title"] = "Origin ATM";
 }
 
 <h2>Ingrese su número de PIN</h2>
-
-
-
 
 <form method="post" asp-action="VerificarPIN">
     <input class="mb-2" type="password" id="inputPIN" name="inputPIN" placeholder="000" readonly />
     @await Html.PartialAsync("_TecladoNumerico", "inputPIN")
     <button class="btn btn-success" type="submit" >Aceptar</button>
 </form>
-<button type="button" class="btn btn-danger mt-2" onclick="salir()">Salir</button>
+@await Html.PartialAsync("_BotonSalir")
 
 @if (ViewBag.IntentosFallidos != null)
 {

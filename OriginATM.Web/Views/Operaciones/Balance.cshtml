@@ -1,5 +1,5 @@
 ﻿@model OriginATM.Web.Models.OperacionesViewModel;
-<div>
+<div class="mt-3">
 
     <h3 class="alert-info">CONSULTA BALANCE:</h3> <br />
     <div>
@@ -8,27 +8,25 @@
                 TARJETA ID: <strong>@Model.TarjetaId</strong>
             </li>
             <li>
-                Fecha Consulta Balance: <strong>@Model.FechaOperacion</strong>
+                Fecha Consulta Balance (dd/MM/AAAA) (hh:mm:ss): <strong>@Model.FechaOperacion</strong>
             </li>
             <li>
                 Codigo de Operacion:<strong> @Model.CodigoOperacion</strong>
             </li>
             <li>
-                N° de Tarjeta:<strong> @Model.NumeroTarjeta </strong>
+                N° de Tarjeta:<strong> @Model.NumeroTarjetaFormateado </strong>
             </li>
             <li>
                 Fecha de Vencimiento (MM/AAAA):<strong> @Model.FechaVencimientoTarjeta.ToString("MM-yyyy") </strong>
             </li>
             <li>
-                Saldo:<strong> $ @Model.Balance</strong>
+                Saldo:<strong> $ @Model.BalanceFormateado)</strong>
             </li>
         </ul> <br />
     </div> 
 
 </div>
 
-
-
 <a class="btn btn-outline-dark" asp-controller="Operaciones" asp-action="Index">ATRÁS</a>
 
-<a class="btn btn-danger m-5" onclick="">Salir</a>
+@await Html.PartialAsync("_BotonSalir")

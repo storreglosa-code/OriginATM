@@ -116,6 +116,12 @@ namespace OriginATM.Web.Controllers
 
         }
 
+        [HttpPost]
+        public IActionResult Salir()
+        {
+            HttpContext.Session.Clear(); 
+            return RedirectToAction("Index", "Home");
+        }
     }
     
 }

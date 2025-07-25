@@ -1,0 +1,12 @@
+﻿@model ErrorViewModel
+
+<h3 class="text-danger">Error.</h3>
+<h4 class="text-danger">Ocurrió un error mientras se procesaba su solicitud.</h4>
+
+<h5 class="alert-danger mb-3">
+
+    @Model.Mensaje
+
+</h5>
+
+<button type="button" class="btn btn-outline-dark" asp-controller="Auth" asp-action="Home"> Atrás </button>

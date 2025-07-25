@@ -10,22 +10,13 @@
     <input class="mb-2" type="text" id="numeroTarjeta" readonly placeholder="XXXX-XXXX-XXXX-XXXX" />
 </div>
 
-<div class="keypad">
-    @for (int i = 1; i <= 9; i++)
-    {
-        <button class="btn btn-primary mb-2" type="button" onclick="agregarDigito('@i')">@i</button>
-        if (i % 3 == 0)
-        {
-            <br />
-        }
-    }
-    <button class="btn btn-primary mb-2" type="button" onclick="agregarDigito('0')">0</button>
-    <br />
-    <button class="btn btn-outline-dark mb-2" type="button" onclick="limpiarNumeroTarjeta()">Limpiar</button>
-    <form id="formTarjeta" method="post" asp-action="VerificarTarjeta">
-        <input type="hidden" id="numeroPlano" name="numeroPlano" />
-        <button class="btn btn-success" type="submit" onclick="enviarNumeroTarjeta()">Aceptar</button>
-    </form>
+<div id="tecladoNumerico">
+    @await Html.PartialAsync("_TecladoNumerico", "numeroTarjeta")
 </div>
+
+<form id="formTarjeta" method="post" asp-action="VerificarTarjeta">
+    <input type="hidden" id="numeroPlano" name="numeroPlano" />
+    <button class="btn btn-success" type="submit" onclick="enviarNumeroTarjeta()">Aceptar</button>
+</form>
 
 

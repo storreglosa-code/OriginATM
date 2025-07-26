@@ -20,4 +20,10 @@
     <ProjectReference Include="..\OriginATM.Dominio\OriginATM.Dominio.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+	<Content Include="Scripts\data-seed.sql">
+		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</Content>
+  </ItemGroup>
+
 </Project>

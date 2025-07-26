@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    ports:
+      - "3308:1433"
+    environment:
+      SA_PASSWORD: "Your_strong_password1"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - sql_data:/var/opt/mssql
+    
+
+  webapp:
+    build:
+      context: .
+      dockerfile: OriginATM.Web/Dockerfile
+    container_name: originatm_web
+    ports:
+      - "5000:5000"
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=OriginATMDb;User Id=sa;Password=Your_strong_password1;Encrypt=False;TrustServerCertificate=True;
+
+volumes:
+  sql_data:

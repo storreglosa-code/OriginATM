@@ -29,6 +29,23 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    db.Database.Migrate();
+
+    var path = Path.Combine(AppContext.BaseDirectory, "Scripts", "data-seed.sql");
+    if (File.Exists(path))
+    {
+        var conn = db.Database.GetDbConnection();
+        conn.Open();
+
+        using var cmd = conn.CreateCommand();
+        cmd.CommandText = File.ReadAllText(path);
+        cmd.ExecuteNonQuery();
+    }
+}
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 

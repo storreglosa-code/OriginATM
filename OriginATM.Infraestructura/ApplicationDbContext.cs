@@ -27,6 +27,10 @@ namespace OriginATM.Infraestructura
             modelBuilder.Entity<Operacion>()
                 .Property(o => o.Monto)
                 .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Tarjeta>()
+                .HasIndex(t => t.Numero)
+                .IsUnique();
         }
 
         public DbSet<Tarjeta> Tarjetas { get; set; }

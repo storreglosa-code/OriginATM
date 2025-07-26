@@ -86,10 +86,13 @@ namespace OriginATM.Web.Controllers
             if(montoARetirar>tarjeta.Balance)
             {
                 TempData["Error"] = "El monto que desea retirar es superior a sus fondos.";
+                HttpContext.Session.Clear();
                 return RedirectToAction("Error", "Auth");
             }
 
-            tarjeta.Balance = tarjeta.Balance - montoARetirar;
+            var nuevoBalance= tarjeta.Balance - montoARetirar;
+
+            tarjeta.Balance = nuevoBalance;
             await _tarjetaRepository.ActualizarAsync(tarjeta);
             var operacion = new Operacion
             {

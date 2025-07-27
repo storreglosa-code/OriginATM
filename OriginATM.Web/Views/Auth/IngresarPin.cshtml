@@ -12,6 +12,13 @@
 </form>
 @await Html.PartialAsync("_BotonSalir")
 
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
 @if (ViewBag.IntentosFallidos != null)
 {
     <div class="alert alert-warning">
@@ -19,11 +26,5 @@
     </div>
 }
 
-@if (TempData["Error"] != null)
-{
-    <div class="alert alert-danger">
-        @TempData["Error"]
-    </div>
-}
 
 

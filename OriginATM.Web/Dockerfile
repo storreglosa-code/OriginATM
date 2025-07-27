@@ -20,4 +20,4 @@ COPY --from=build /app/publish .
 ENV ASPNETCORE_URLS=http://+:5000
 ENV ASPNETCORE_ENVIRONMENT=Production
 EXPOSE 5000
-ENTRYPOINT ["dotnet", "OriginATM.Web.dll"]
+ENTRYPOINT ["sh", "-c", "sleep 10 && dotnet OriginATM.Web.dll"]

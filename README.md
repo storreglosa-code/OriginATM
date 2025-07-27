@@ -55,7 +55,9 @@ git clone https://github.com/storreglosa-code/OriginATM.git
 cd OriginATM
 docker-compose up --build
 ```
-## 📝 DATOS DE PRUEBA
+Y se accede desde: http://localhost:5000
+
+## 📝 Datos de prueba
 | Número de Tarjeta | PIN | Saldo (\$) | ¿Bloqueada? | Intentos Fallidos | Vencimiento |
 | ----------------- | --- | ---------- | ----------- | ----------------- | ----------- |
 | 1111111111111111  | 111 | 1.234      | ❌ No       |     2             | Ago 2025    |

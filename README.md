@@ -75,8 +75,29 @@ Si deseás inspeccionar o modificar los datos directamente desde SSMS (u otra he
 
 📸 Captura de ejemplo:
 
+![Conexion SQL](CapturasApp/13_SQLConnection.png)
+
 ⚠️ Asegurate de que el contenedor de SQL Server esté en ejecución (docker ps) y que el puerto 3308 no esté ocupado por otra aplicación.
 
 
 ## ⚠️ Nota sobre la zona horaria
 Las operaciones registradas en la base de datos pueden mostrar una diferencia horaria con respecto a la hora local (UTC-3). Esto se debe a que el contenedor de SQL Server corre en zona horaria UTC por defecto. No afecta el funcionamiento de la aplicación.
+
+
+## 🖼️ Capturas de la Aplicación
+
+### Pantalla de Inicio
+![Index](CapturasApp/02_Index.png)
+
+
+### Validación Datos (Numero de Tarjeta y Pin)
+![Validacion Numero Tarjeta](CapturasApp/03_IngresarTarjeta.png)
+![Validacion PIN](CapturasApp/04_IngresarPin.png)
+
+
+### Operación de Balance
+![Balance](CapturasApp/06_Balance.png)
+
+
+### Operación de extracción
+![Extracción](CapturasApp/08_ReporteRetiro.png)
